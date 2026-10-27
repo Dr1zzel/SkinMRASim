@@ -140,9 +140,16 @@ _DERMIS = Tissue(
                 "There is no consensus 3 T measurement of dermis T1. Values near 850 ms "
                 "reported at 1.5 T rise at 3 T; the interval is deliberately wide and this "
                 "is the parameter most worth measuring."),
-    t2star_ms=Range(20, 45, "low",
-                    "Dermis is collagen-rich with a short T2, and multi-component behaviour "
-                    "means the single value used here is an approximation to begin with."),
+    t2star_ms=Range(8, 15, "medium",
+                    "Measured directly, in the dorsal calf, at 1.5 T: 12.0 +- 1.4 ms fitted "
+                    "over TE 2.8-20 ms, resolving into 9.8 ms (91 %) and 42.7 ms (9 %) once "
+                    "the echo range is extended to 60 ms (Song et al., Magn Reson Med "
+                    "1997;37:185). Barral et al., Magn Reson Med 2010;63:790 take 10 ms as "
+                    "the typical dermis value. True T2 at 3 T is 27.6 ms [24.0-33.0] in 33 "
+                    "subjects (Mesrar et al., Skin Res Technol 2017;23:289), which bounds "
+                    "T2* from above; dephasing grows with field, so the 1.5 T measurement is "
+                    "itself an upper bound at 3 T. This interval covers the dominant "
+                    "component only, which carries 91 % of the signal."),
     spin_density=Range(0.60, 0.75, "low",
                        "Water content of dermis is roughly two thirds by volume."),
     fat_sat_surviving=Range(0.90, 1.00, "low",
@@ -178,8 +185,9 @@ _MUSCLE = Tissue(
     name="muscle",
     t1_ms=Range(1300, 1500, "medium",
                 "Stanisz et al., Magn Reson Med 2005;54:507 report about 1412 ms at 3 T."),
-    t2star_ms=Range(20, 35, "low",
-                    "Muscle T2 near 50 ms at 3 T; T2* is shorter again and shim-dependent."),
+    t2star_ms=Range(20, 35, "medium",
+                    "Song et al., Magn Reson Med 1997;37:185 measured 29.8 ms in vivo at "
+                    "1.5 T; T2* is shorter again at 3 T and remains shim-dependent."),
     spin_density=Range(0.70, 0.85, "medium",
                        "Water content of skeletal muscle."),
     fat_sat_surviving=Range(0.92, 1.00, "low",
